@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Stored Data</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-logo">
+            <span>HODLINFO</span>
+        </div>
+        <div class="dropdowns">
+            <select>
+                <option>INR</option>
+                <option>BTC</option>
+            </select>
+            <select>
+                <option>BTC</option>
+                <option>Dropdown 2</option>
+            </select>
+            <button>BUY BTC</button>
+        </div>
+        <div class="right-top">
+            <p class="bordered-para">57</p>
+            <button class="join-telegram"><i class="fab fa-telegram">&nbsp;&nbsp;</i>CONNECT TELEGRAM </i></button>
+            <label class="switch">
+                <input type="checkbox" id="themeToggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+    <div class="section">
+        <div class="flex-item">
+            <h2 style="color:rgb(127, 213, 246)">0.1%</h2>
+            <h4 style="color: #676565">5 Mins</h4>
+        </div>
+        <div class="flex-item">
+            <h2 style="color:rgb(127, 213, 246)">0.96%</h2>
+            <h4 style="color: #676565">1 Hour</h4>
+        </div>
+        <div class="flex-item">
+            <h3 style="color: #676565">Best Price to Trade</h3>
+            <h1 style="font-size: 3rem">₹ 26,56,110</h1>
+            <p style="color: #676565">Average BTC/INR not including price commission</p>
+        </div>
+        <div class="flex-item">
+            <h2 style="color:rgb(127, 213, 246)">2.73%</h2>
+            <h4 style="color: #676565">1 Day</h4>
+        </div>
+        <div class="flex-item">
+            <h2 style="color:rgb(127, 213, 246)">7.51%</h2>
+            <h4 style="color: #676565">7 Days</h4>
+        </div>
+    </div>
+    <div id="data-container">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Platform</th>
+                    <th>Last Traded Price</th>
+                    <th>Buy/Sell Price</th>
+                    <th>Difference</th>
+                    <th>Base Unit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (data.length > 0) { %>
+                <% data.forEach((item, index) => { %>
+                    <tr>
+                        <td><%= item.id %></td>
+                        <td><%= item.name %></td>
+                        <td><%= item.last %></td>
+                        <td><%= item.buy %> / <%= item.sell %></td>
+                        <td><%= item.volume %></td>
+                        <td><%= item.base_unit %></td>
+                    </tr>
+                <% }); %>
+                <% } else { %>
+                    <p>Data is not available. Please insert data.</p>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
